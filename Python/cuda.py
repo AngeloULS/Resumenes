@@ -36,4 +36,17 @@ Pero además instó a poner atención a lo que sucede fuera de los locales de vo
 
 Mientras, David Cabedo (RN), instó a la participación en este proceso el día de mañana y se mostró confiado de los resultados. “Tengo la convicción de que mañana ganaremos, ya que los vecinos se inclinarán por la única opción de cambio real para nuestra comuna, ya que no hemos pactado como otros candidatos, los que han reconocido incluso en televisión sus pactos con los Olguín, con los Jaque y otros de la mafia de Aguilera”, arremetió.
 """
-print(generate_summary(noticia))
+
+noticia2 = """
+Fue el fiscal regional de La Araucanía, Miguel Rojas Thiele, quien confirmó que la persona fallecida en Carahue fue identificada como Pablo Marchant, tal como informó durante la mañana el líder de la CAM Héctor Llaitul.
+
+"En horas de la madrugada se pudo determinar que se trata de don Pablo Marchant Gutiérrez quedando descartada aquella información que daba cuenta que la persona fallecida se trataba del hijo de don Héctor Llaitul, información que no fue emanada por parte de la fiscalía y que surgió a través de distintos medios de comunicación y de distintas redes sociales", aseguró el fiscal.
+
+Según detalló el persecutor, entre las primeras diligencias, se permitió a Héctor Llaitul identificar el cuerpo de la persona fallecida, descartando que se tratara de su hijo Ernesto, lo que fue ratificado con análisis periciales que confirmaron la identidad de la persona muerta.
+
+"De acuerdo a los primeros antecedentes recopilados, habrían participado alrededor de 6 a 7 personas, quienes se encontraban encapuchadas, vestían ropas oscuras y además portaban armas de grueso calibre, con las cuales atacan a funcionarios policiales de Carabineros que en ese momento se encontraban realizando labores de resguardo del predio donde acaecen estos hechos. Producto de este ataque, funcionarios policiales de Carabineros hacen uso de sus armas de servicio, generándose un enfrentamiento, producto del cual resulta fallecido uno de los presuntos atacantes, quien vestía ropas oscuras y además portaba un fusil M16", agregó el fiscal.
+
+Según la fiscalía, las indagatorias siguen en curso, tanto para esclarecer el enfrentamiento, como también la muerte de Pablo Marchant y las heridas del trabajador, que "en estos momentos se encuentra conectado a un respirador mecánico".
+
+"""
+print(generate_summary(noticia2))
