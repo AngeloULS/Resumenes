@@ -1,3 +1,8 @@
+# pip install torch
+# pip install transformers
+#
+#
+
 import torch
 from transformers import BertTokenizerFast, EncoderDecoderModel
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
