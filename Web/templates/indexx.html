@@ -1,0 +1,72 @@
+//templates/index.html
+<html>
+ <head>
+  <title>Python Flask Mysql Display Loading Image when AJAX call is in Progress</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+ </head>
+ <body>
+  <div class="container">
+  <div class="row">
+   <h3 align="center">Python Flask Mysql Display Loading Image when AJAX call is in Progress</h3>
+    Search : 
+    <input type='text' id='search' class="form-control" style="width:40%;"><br/>
+    <input type='button' id='but_search' value='Search' class="btn btn-default"><br/>
+    <!-- Image loader -->
+    <div id='loader' style='display: none;'>
+      <img src='/Web/static/img/Loading_2.gif'> <b>Loading..</b>
+    </div>
+    <br/>
+    <!-- Image loader -->
+    <div class='response'></div>
+   </div>
+  </div>
+<script type='text/javascript'>
+ 
+$(document).ready(function(){
+  
+ $("#but_search").click(function(){
+  var search = $('#search').val();
+ 
+  $.ajax({
+   url: '/fetchdeta',
+   type: 'post',
+   data: {search:search},
+   beforeSend: function(){
+    // Show image container
+    $("#loader").show();
+   },
+   success: function(response){
+    $('.response').empty();
+    $('.response').append(response.htmlresponse);
+   },
+   complete:function(data){
+    // Hide image container
+    $("#loader").hide();
+   }
+  });
+  
+ });
+});
+</script>
+<style>
+.post{
+    width: 97%;
+    min-height: 200px;
+    padding: 5px;
+    border: 1px solid gray;
+    margin-bottom: 15px;
+}
+.post h1{
+    letter-spacing: 1px;
+    font-weight: normal;
+    font-family: sans-serif;
+}
+.post p{
+    letter-spacing: 1px;
+    text-overflow: ellipsis;
+    line-height: 25px;
+}
+</style>
+ </body>
+</html>

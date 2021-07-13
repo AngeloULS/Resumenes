@@ -6,16 +6,6 @@ from transformers import BertTokenizerFast, EncoderDecoderModel
 app = Flask(__name__)
 app.secret_key = 'mysecretkey'
 
-usuario =[
-    {
-        "Nombre":"Maycol",
-        "Apellido":"Gonzalez"
-    },
-    {
-        "Nombre":"Pepe",
-        "Apellido":"Rojas"
-    }
-]
 
 def modificaTexto(texto):
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -30,36 +20,16 @@ def modificaTexto(texto):
     resultado = tokenizer.decode(output[0], skip_special_tokens=True)
 
     return resultado
-        
-    
 
-@app.route('/usuario', methods=["GET"])
-def getUsuario():
-    return jsonify(usuario)
-
-
-@app.route('/mayuscula/<oracion>', methods=["GET"])
-def mayuscula(oracion):
-    resultado =''
-    for i in oracion.split():
-        resultado += i[0].upper() + i[1:-1] + i[-1].upper() + ' '
-        
-    return resultado
-
-
-@app.route('/nombre/<string:nom>', methods=["GET"])
-def nombre(nom):
-    return nom
 
 
 @app.route('/', methods=["GET","POST"])
 def index():
-    if request.method == 'GET':
-        if request.form.get('action1') == 'VALUE1':
-            print('btn 1')
+   # if request.method == 'GET':
+      #  if request.form.get('action1') == 'VALUE1':
+           # print('btn 1')
         
     return render_template('index.html')
-
 
 @app.route("/f", methods=['GET', 'POST'])
 def indexx():
@@ -81,6 +51,10 @@ def indexx():
         return render_template('index.html')
     
     return render_template("index.html")
+
+
+
+
 
 if __name__ == "__main__":
     app.run(debug= True)
