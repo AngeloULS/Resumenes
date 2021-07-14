@@ -1,3 +1,28 @@
-{%for message in messages %} 
-<p>{{message}}</p>
-{%endfor%}
+{% extends "layout.html" %}
+
+{% block content1 %}
+
+<div class="container">
+    <div>
+        <h6>Noticia original</h6>
+    </div>
+    <hr>
+    <div class = "div_texto">
+        <p class = "p_parrafo">{{noticia}}</p>
+    </div>
+    <br><br>
+    <div>
+        <h6>Resumen</h6>
+    </div>
+    <hr>
+    <div class = "div_texto">
+        <p class = "p_parrafo">{{resumen}}</p>
+    </div>
+    <br>
+    <div class = "div_btn">
+        <form method="GET" action="/" >
+            <button class="btn btn-primary" id ="btn_resumir" type="submit" value ="VALUE1"  name="action1" >Atras</button>
+        </form>
+    </div>
+  </div>  
+{% endblock %}
