@@ -6,7 +6,9 @@
 import torch
 from transformers import BertTokenizerFast, EncoderDecoderModel
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
-ckpt = 'mrm8488/bert2bert_shared-spanish-finetuned-summarization'
+print(device)
+#ckpt = 'mrm8488/bert2bert_shared-spanish-finetuned-summarization'
+ckpt = 'D:\\Fine-Tuning\\tmp_trainer\\checkpoint-33000'
 tokenizer = BertTokenizerFast.from_pretrained(ckpt)
 model = EncoderDecoderModel.from_pretrained(ckpt).to(device)
 

@@ -214,17 +214,18 @@ class DataTrainingArguments:
     )
 
     def __post_init__(self):
+
         if self.dataset_name is None and self.train_file is None and self.validation_file is None:
             raise ValueError("Need either a dataset name or a training/validation file.")
-        else:
-            if self.train_file is not None:
-                extension = self.train_file.split(".")[-1]
-                assert extension in ["csv", "json"], "`train_file` should be a csv or a json file."
-            if self.validation_file is not None:
-                extension = self.validation_file.split(".")[-1]
-                assert extension in ["csv", "json"], "`validation_file` should be a csv or a json file."
-        if self.val_max_target_length is None:
-            self.val_max_target_length = self.max_target_length
+        #else:
+            #if self.train_file is not None:
+            #    extension = self.train_file.split(".")[-1]
+            #    assert extension in ["csv", "json"], "`train_file` should be a csv or a json file."
+            #if self.validation_file is not None:
+            #    extension = self.validation_file.split(".")[-1]
+            #    assert extension in ["csv", "json"], "`validation_file` should be a csv or a json file."
+        #if self.val_max_target_length is None:
+        #    self.val_max_target_length = self.max_target_length
 
 
 summarization_name_mapping = {
@@ -330,6 +331,7 @@ def main():
         if data_args.test_file is not None:
             data_files["test"] = data_args.test_file
             extension = data_args.test_file.split(".")[-1]
+        print("ALGO "+extension)
         raw_datasets = load_dataset(extension, data_files=data_files, cache_dir=model_args.cache_dir)
     # See more about loading any type of standard or custom dataset (from files, python dict, pandas DataFrame, etc) at
     # https://huggingface.co/docs/datasets/loading_datasets.html.
